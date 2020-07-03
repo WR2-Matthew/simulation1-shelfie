@@ -1,18 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
 import './Product.css'
 
 export default class Product extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-
-    }
-  }
 
   render() {
-    const { name, price, image, productId, deleteProd } = this.props
+    const { name, price, image, productId, deleteProd, edit } = this.props
     return (
 
       <div className='infoBox'>
@@ -28,7 +21,9 @@ export default class Product extends Component {
 
           <div className='prodButtonsHolder'>
             <button className='prodButtons' onClick={() => deleteProd(productId)} >Delete</button>
-            <button className='prodButtons'>Edit</button>
+            <Link to={`/edit/${productId}`}>
+              <button className='prodButtons'>Edit</button>
+            </Link>
           </div>
         </div>
 

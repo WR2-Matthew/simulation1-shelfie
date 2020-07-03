@@ -9,8 +9,36 @@ export default class Form extends Component {
     this.state = {
       image: '',
       name: '',
-      price: ''
+      price: '',
+      id: null,
+      editing: false,
+      selected: []
     }
+  }
+
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   const { currentProd } = this.props
+  //   if (prevProps !== currentProd && prevState !== this.state) {
+  //     this.setState({
+  //       image: currentProd.image,
+  //       name: currentProd.name,
+  //       price: currentProd.price,
+  //       id: currentProd.id
+  //     })
+  //   }
+  // }
+
+  componentDidMount = () => {
+    this.prodToState()
+  }
+
+  prodToState = () => {
+    axios
+      .get(`/api/single/${this.props.match.params.id}`)
+      .then(res => {
+        // console.log(res.data)
+        this.setState({ selected: res.data, editing: true })
+      })
   }
 
   handleChange = (e) => {
@@ -28,7 +56,6 @@ export default class Form extends Component {
   }
 
   addToInventory = () => {
-    const { retrieve } = this.props
     const { name, price, image } = this.state
     const body = {
       name,
@@ -37,13 +64,12 @@ export default class Form extends Component {
     }
     axios
       .post('/api/product', body)
-      .then(() => retrieve())
       .then(this.cancel())
   }
 
   render() {
-    const { image, name, price } = this.state
-
+    const { image, name, price, selected } = this.state
+    console.log(selected)
     return (
 
       <div className='formHolder'>

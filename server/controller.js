@@ -24,6 +24,17 @@ module.exports = {
 
     const deleted = await db.remove_product(product_id)
     res.sendStatus(200)
+  },
+
+  getSingProd: async (req, res) => {
+    // console.log('hit')
+    const { id } = req.params
+    // console.log(id, 'id')
+    const db = req.app.get('db')
+
+    const single = await db.get_single_product(id)
+    // console.log(single, 'selected')
+    res.status(200).send(single)
   }
 
 }

@@ -8,8 +8,20 @@ export default class Dashboard extends Component {
     super();
 
     this.state = {
-
+      inventory: []
     }
+  }
+
+  componentDidMount = () => {
+    this.retrieveData()
+  }
+
+  retrieveData = () => {
+    axios
+      .get('/api/inventory')
+      .then(res => {
+        this.setState({ inventory: res.data })
+      })
   }
 
   deleteProduct = (product_id) => {
@@ -22,7 +34,7 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const { inventory } = this.props
+    const { inventory } = this.state
     const mappedInv = inventory.map((e, i) => {
       return (
         <Product key={i}

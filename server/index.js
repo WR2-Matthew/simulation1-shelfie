@@ -20,6 +20,7 @@ massive({
 })
 
 app.get('/api/inventory', ctrl.getProducts)
+app.get('/api/single/:id', ctrl.getSingProd)
 app.post('/api/product', ctrl.createProduct)
 app.delete('/api/remove/:product_id', ctrl.deleteProduct)
 

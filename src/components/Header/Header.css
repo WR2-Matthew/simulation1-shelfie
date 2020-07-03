@@ -11,7 +11,7 @@
 
 .logoHolder {
   height: 5vh;
-  width: 1200px;
+  width: 370px;
   display: flex;
   flex-direction: row;
   margin-left: 100px;
@@ -25,3 +25,19 @@
   margin-bottom: 10px;
 }
 
+.headerButtonHolder {
+  width: 300px;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.headerButton {
+  padding: 10px;
+  margin: 5px 10px;
+  background-color: #ed6b5a;
+  border-radius: 7px;
+  border: none;
+  font-family: Open Sans,sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}

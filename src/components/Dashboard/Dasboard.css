@@ -1,0 +1,11 @@
+.dashboard {
+  height: 90vh;
+  width: 50vw;
+  display: flex;
+}
+
+.dashDetailsHolder {
+  height: 90vh;
+  width: 40vw;
+  margin: 100px;
+}

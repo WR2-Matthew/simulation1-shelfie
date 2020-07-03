@@ -1,0 +1,33 @@
+.infoBox{
+display: flex;
+background-color: #ed6b5a;
+height: 20vh;
+width: 40vw;
+margin-bottom: 20px;
+justify-content: center;
+align-items: center;
+}
+
+.prodImgHolder {
+  display: flex;
+  justify-content: flex-start;
+  height: 16vh;
+  width: 20vw;
+}
+
+.prodImage {
+  margin-left: 16px;
+  height: 130px;
+  width: 200px;
+}
+
+.descriptionHolder {
+  height: 16vh;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptionHolder span {
+  font-weight: 500;
+}

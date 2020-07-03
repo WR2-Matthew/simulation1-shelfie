@@ -1,0 +1,27 @@
+.header {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #AB2A19;
+  position: fixed; 
+  top: 0;
+}
+
+.logoHolder {
+  height: 5vh;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 100px;
+  align-items: center;
+}
+
+.headerName {
+  width: 150px;
+  height: 50px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+

@@ -1,0 +1,74 @@
+
+.formHolder {
+  height: 90vh;
+  width: 50vw;
+  position: fixed; 
+  top:100;
+  left: 600px
+  
+}
+
+.form {
+  width: 30vw;
+  height: 60vh;
+  background-color: #3ad886;
+  margin-top: 100px;
+  margin-left: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+  .imageHolder {
+    height: 20vh;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .imageee {
+    height: 20vh;
+    width: 20vw;
+    }
+
+.inputHolder {
+  height: 30vh;
+  width: 27vw;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.inputHolder label {
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.buttonHolder {
+  height: 10vh;
+  width: 44vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formButtonTwo {
+  height: 40px;
+  width: 150px;
+}
+
+.formButtonTwo, .formButtonOne {
+  padding: 10px;
+  margin: 5px 10px;
+  background-color: #ed6b5a;
+  border-radius: 7px;
+  border: none;
+  font-family: Open Sans,sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}

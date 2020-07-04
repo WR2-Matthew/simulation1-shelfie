@@ -35,6 +35,16 @@ module.exports = {
     const single = await db.get_single_product(id)
     // console.log(single, 'selected')
     res.status(200).send(single)
+  },
+
+  editProduct: async (req, res) => {
+    // console.log('hit')
+    const { id } = req.params
+    const { name, image, price } = req.body
+    const db = req.app.get('db')
+
+    await db.edit_product(id, name, price, image)
+    res.sendStatus(200)
   }
 
 }

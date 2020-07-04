@@ -29,7 +29,7 @@ export default class Dashboard extends Component {
     axios
       .delete(`/api/remove/${product_id}`)
       .then(() => {
-        this.props.retrieve()
+        this.retrieveData()
       })
   }
 

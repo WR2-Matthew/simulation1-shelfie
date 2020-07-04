@@ -36,8 +36,13 @@ export default class Form extends Component {
     axios
       .get(`/api/single/${this.props.match.params.id}`)
       .then(res => {
-        // console.log(res.data)
-        this.setState({ selected: res.data, editing: true })
+        console.log(res.data[0].product_name)
+        this.setState({
+          editing: true,
+          image: res.data[0].image_url,
+          name: res.data[0].product_name,
+          price: res.data[0].product_price
+        })
       })
   }
 
@@ -53,6 +58,17 @@ export default class Form extends Component {
       name: '',
       price: ''
     })
+    this.props.history.push('/')
+  }
+
+  cancelPush = () => {
+    this.setState({
+      image: '',
+      name: '',
+      price: '',
+      editing: false
+    })
+    this.props.history.push('/')
   }
 
   addToInventory = () => {
@@ -64,16 +80,31 @@ export default class Form extends Component {
     }
     axios
       .post('/api/product', body)
-      .then(this.cancel())
+      .then(this.cancelPush())
+  }
+
+  saveChanges = () => {
+    const { name, image, price } = this.state
+    const body = {
+      name,
+      image,
+      price
+    }
+    console.log(body)
+    console.log(this.props.match.params.id)
+    axios
+      .put(`/api/editing/${this.props.match.params.id}`, body)
+      .then(() => {
+        this.cancel()
+      })
   }
 
   render() {
-    const { image, name, price, selected } = this.state
-    console.log(selected)
+    const { image, name, price, editing } = this.state
     return (
 
       <div className='formHolder'>
-        <div className='form'>
+        {!editing ? <div className='form'>
 
           <div className='imageHolder'>
             {!image ?
@@ -94,11 +125,40 @@ export default class Form extends Component {
           </div>
 
           <div className='buttonHolder'>
-            <button className='formButtonOne' onClick={() => this.cancel}>Cancel</button>
+            <button className='formButtonOne' onClick={() => this.cancel()}>Cancel</button>
             <button className='formButtonTwo' onClick={() => this.addToInventory()} >Add to Inventory</button>
           </div>
 
         </div>
+
+          : <div className='form'>
+
+            <div className='imageHolder'>
+              {!image ?
+                <img className='imageee' alt='thing' src='https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png' />
+                : <img className='imageee' alt='prod' src={`${image}`} />
+              }
+            </div>
+
+            <div className='inputHolder'>
+              <label>Image URL:</label>
+              <input name='image' value={image} onChange={(e) => this.handleChange(e)} />
+
+              <label>Product Name:</label>
+              <input name='name' value={name} onChange={(e) => this.handleChange(e)} />
+
+              <label>Price:</label>
+              <input name='price' value={price} onChange={(e) => this.handleChange(e)} />
+            </div>
+
+            <div className='buttonHolder'>
+              <button className='formButtonOne' onClick={() => this.cancelPush()}>Cancel</button>
+              <button className='formButtonTwo' onClick={() => this.saveChanges()} >Save Changes</button>
+            </div>
+
+          </div>
+
+        }
       </div>
     )
   }

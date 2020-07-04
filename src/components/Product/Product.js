@@ -14,16 +14,18 @@ export default class Product extends Component {
         </div>
 
         <div className='descriptionHolder'>
-          <div>
+          <div className='theDeats'>
             <span>{name}</span>
             <span>{`$${price}`}</span>
           </div>
 
-          <div className='prodButtonsHolder'>
-            <button className='prodButtons' onClick={() => deleteProd(productId)} >Delete</button>
-            <Link to={`/edit/${productId}`}>
-              <button className='prodButtons'>Edit</button>
-            </Link>
+          <div className='problemFixer'>
+            <div className='prodButtonsHolder'>
+              <button className='prodButtons' onClick={() => deleteProd(productId)} >Delete</button>
+              <Link to={`/edit/${productId}`} className='prodButtonsHolder'>
+                <button className='prodButtons'>Edit</button>
+              </Link>
+            </div>
           </div>
         </div>
 

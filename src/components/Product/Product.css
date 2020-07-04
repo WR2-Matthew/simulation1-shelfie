@@ -28,6 +28,40 @@ align-items: center;
   flex-direction: column;
 }
 
+.theDeats {
+  display: flex;
+  flex-direction: column;
+}
+
 .descriptionHolder span {
   font-weight: 500;
 }
+
+.problemFixer {
+  height: 15vh;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+align-items: flex-end;}
+
+.prodButtonsHolder {
+  height: 5vh;
+  width: 20vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.prodButtons {
+  padding: 10px;
+  margin: 5px 10px;
+  background-color: #3ad886;
+  border-radius: 7px;
+  border: none;
+  font-family: Open Sans,sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

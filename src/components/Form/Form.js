@@ -163,3 +163,12 @@ export default class Form extends Component {
     )
   }
 }
+
+
+
+
+
+
+// !image ?
+//   <img className='imageee' alt='thing' src='https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png' />
+//   : <img className='imageee' alt='prod' src={`${image}`} />

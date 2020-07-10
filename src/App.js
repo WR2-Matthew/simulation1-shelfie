@@ -19,7 +19,7 @@ class App extends Component {
 
 
   render() {
-    const { inventory, currentProd } = this.state
+    // const { inventory, currentProd } = this.state
     return (
       <div className="App">
         <Header />

@@ -16,6 +16,12 @@ export default class Dashboard extends Component {
     this.retrieveData()
   }
 
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevState.inventory !== this.state.inventory) {
+      this.retrieveData()
+    }
+  }
+
   retrieveData = () => {
     axios
       .get('/api/inventory')
